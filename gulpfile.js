@@ -67,9 +67,13 @@ gulp.task('less', function () {
 
 gulp.task('build', ['less'], function () {
 
-    fs.writeFileSync('./docs/index.html', templates.index({}));
-    fs.writeFileSync('./docs/gcanvas.html', templates.gcanvas({}));
-    fs.writeFileSync('./docs/g3d.html', templates.g3d({}));
+    const option = {
+        root: './'
+    }
+
+    fs.writeFileSync('./docs/index.html', templates.index(option));
+    fs.writeFileSync('./docs/gcanvas.html', templates.gcanvas(option));
+    fs.writeFileSync('./docs/g3d.html', templates.g3d(option));
 
     const docsData = {};
     glob.sync('./sources/*/*.md').forEach(fileName => {
@@ -88,7 +92,11 @@ gulp.task('build', ['less'], function () {
         Object.keys(scopeData).forEach(baseName => {
 
             fs.outputFileSync(`./docs/${scope.split('-').join('/')}/${baseName}.html`, templates[scope](
-                { index: Object.keys(scopeData), content: marked(scopeData[baseName]) }
+                { 
+                    index: Object.keys(scopeData), 
+                    content: marked(scopeData[baseName]) ,
+                    root: '../../'
+                }
             ));
         })
     })
