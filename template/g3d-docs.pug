@@ -1,0 +1,13 @@
+extend layout
+
+block main
+    .g3d
+        include g3d-header.pug
+        .doc
+            .content
+                .index
+                    ol
+                        for name in index
+                            li.item
+                                a(href="./"+name+".html")= name
+                .body!= content

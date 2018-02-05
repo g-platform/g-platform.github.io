@@ -1,0 +1,24 @@
+{
+  "name": "gplatform-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.2",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.4.0",
+    "jade": "^1.11.0",
+    "lodash": "^4.17.4",
+    "pug": "^2.0.0-rc.4"
+  },
+  "dependencies": {
+    "gulp-watch": "^5.0.0"
+  }
+}
