@@ -5,19 +5,15 @@ const less = require('gulp-less');
 const _ = require('lodash');
 const glob = require('glob');
 const marked = require('marked');
-
-// marked.setOptions({
-//   renderer: new marked.Renderer(),
-//   gfm: true,
-//   tables: true,
-//   breaks: false,
-//   pedantic: false,
-//   sanitize: false,
-//   smartLists: true,
-//   smartypants: false
-// });
-
+const yaml = require('yaml-js');
 const watch = require('gulp-watch');
+const fetch = require('fetch');
+const log = require('fancy-log');
+
+const fetchAsync = url => new Promise(
+    (resolve, reject) => fetch.fetchUrl(url,
+        (e, m, body) => e ? reject(e) : resolve(body.toString())
+    ));
 
 const templates = {
     index: pug.compile(
@@ -45,6 +41,27 @@ const templates = {
         fs.readFileSync('./template/g3d-docs.pug', 'utf-8'),
         {
             filename: './template/g3d-docs.pug',
+            pretty: true
+        }
+    ),
+    ['g3d-guide']: pug.compile(
+        fs.readFileSync('./template/g3d-docs.pug', 'utf-8'),
+        {
+            filename: './template/g3d-docs.pug',
+            pretty: true
+        }
+    ),
+    ['gcanvas-docs']: pug.compile(
+        fs.readFileSync('./template/gcanvas-docs.pug', 'utf-8'),
+        {
+            filename: './template/gcanvas-docs.pug',
+            pretty: true
+        }
+    ),
+    ['gcanvas-guide']: pug.compile(
+        fs.readFileSync('./template/gcanvas-docs.pug', 'utf-8'),
+        {
+            filename: './template/gcanvas-docs.pug',
             pretty: true
         }
     )
@@ -85,6 +102,8 @@ gulp.task('build', ['less'], function () {
         docsData[scope][baseName] = fs.readFileSync(fileName, 'utf-8');
     });
 
+    const configDocs = yaml.load(fs.readFileSync('./sources/index.yaml')).docs;
+
     Object.keys(docsData).forEach(scope => {
 
         const scopeData = docsData[scope];
@@ -92,12 +111,47 @@ gulp.task('build', ['less'], function () {
         Object.keys(scopeData).forEach(baseName => {
 
             fs.outputFileSync(`./docs/${scope.split('-').join('/')}/${baseName}.html`, templates[scope](
-                { 
-                    index: Object.keys(scopeData), 
-                    content: marked(scopeData[baseName]) ,
+                {
+                    index: Object.keys(scopeData).sort(
+                        (k1, k2) => {
+                            const z1 = Object.keys(configDocs[scope]).indexOf(k1);
+                            const z2 = Object.keys(configDocs[scope]).indexOf(k2);
+                            return z1 < z2 ? -1 : z1 > z2 ? 1 : 0
+                        }
+                    ),
+                    content: marked(scopeData[baseName]),
                     root: '../../'
                 }
             ));
         })
     })
+})
+
+
+gulp.task('fetch', async function () {
+
+    const config = yaml.load(fs.readFileSync('./sources/index.yaml'));
+
+
+    const scopes = ['g3d-docs', 'g3d-guide', 'gcanvas-docs', 'gcanvas-guide'];
+
+    for (let item of scopes) {
+        await dealScope(item);
+    }
+
+    async function dealScope(scope) {
+        const docs = config['docs'][scope];
+
+        for (let name in docs) {
+            const url = docs[name];
+            try {
+                const content = await fetchAsync(url);
+                log(`Fetch ${name} success. Content length ${content.length}`);
+                fs.outputFileSync(`./sources/${scope}/${name}.md`, content);
+            } catch (e) {
+                log(`Error : fetch ${name}(${url}) failed. Message: ${e.toString()}`);
+            }
+        }
+    }
+
 })

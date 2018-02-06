@@ -119,6 +119,18 @@ body {
   background-color: #078bfc;
   border-radius: 5px;
 }
+.index .intro .content .the-box .button a {
+  text-decoration: none;
+}
+.index .intro .content .the-box .button a:link {
+  color: #fff;
+}
+.index .intro .content .the-box .button a:active {
+  color: #fff;
+}
+.index .intro .content .the-box .button a:visited {
+  color: #fff;
+}
 .index .intro .content .left {
   width: 50%;
   float: left;
@@ -155,6 +167,18 @@ body {
   background-color: #078bfc;
   border-radius: 5px;
 }
+.index .intro .content .left .box .button a {
+  text-decoration: none;
+}
+.index .intro .content .left .box .button a:link {
+  color: #fff;
+}
+.index .intro .content .left .box .button a:active {
+  color: #fff;
+}
+.index .intro .content .left .box .button a:visited {
+  color: #fff;
+}
 .index .intro .content .right {
   width: 50%;
   float: right;
@@ -190,6 +214,18 @@ body {
   color: #fff;
   background-color: #078bfc;
   border-radius: 5px;
+}
+.index .intro .content .right .box .button a {
+  text-decoration: none;
+}
+.index .intro .content .right .box .button a:link {
+  color: #fff;
+}
+.index .intro .content .right .box .button a:active {
+  color: #fff;
+}
+.index .intro .content .right .box .button a:visited {
+  color: #fff;
 }
 .gcanvas .header {
   background-color: #474747;
@@ -242,7 +278,7 @@ body {
   text-align: center;
 }
 .gcanvas .intro .content .description {
-  font-size: 15px;
+  font-size: 18px;
   color: #777;
   padding: 20px 140px;
 }
@@ -308,12 +344,16 @@ body {
   text-align: center;
 }
 .g3d .intro .content .description {
-  font-size: 15px;
+  font-size: 18px;
   color: #777;
   padding: 20px 140px;
 }
 .g3d .intro .content .blueprint {
   height: 500px;
+  margin-top: 80px;
+}
+.g3d .intro .content .blueprint .title {
+  margin-bottom: 30px;
 }
 .g3d .archi {
   height: 600px;
@@ -402,7 +442,8 @@ body {
 iframe.playground {
   display: block;
   width: 1000px;
-  height: 200px;
+  height: 700px;
   margin: 20px auto;
-  border: 1px solid #474747;
+  border: 1px solid #aaa;
+  box-shadow: #ccc 2px 0px 4px;
 }

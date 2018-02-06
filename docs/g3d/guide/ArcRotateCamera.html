@@ -31,23 +31,12 @@
             <ol>
               <li class="item"><a href="./ArcRotateCamera.html">ArcRotateCamera</a></li>
               <li class="item"><a href="./Engine.html">Engine</a></li>
-              <li class="item"><a href="./Geometry.html">Geometry</a></li>
-              <li class="item"><a href="./LineMesh.html">LineMesh</a></li>
-              <li class="item"><a href="./Material.html">Material</a></li>
-              <li class="item"><a href="./Mesh.html">Mesh</a></li>
-              <li class="item"><a href="./MeshBuilder.html">MeshBuilder</a></li>
-              <li class="item"><a href="./MorphTargetMesh.html">MorphTargetMesh</a></li>
-              <li class="item"><a href="./Node.html">Node</a></li>
-              <li class="item"><a href="./PerspectiveCamera.html">PerspectiveCamera</a></li>
-              <li class="item"><a href="./RawMaterial.html">RawMaterial</a></li>
-              <li class="item"><a href="./Scene.html">Scene</a></li>
-              <li class="item"><a href="./StandardMaterial.html">StandardMaterial</a></li>
             </ol>
           </div>
-          <div class="body"><h1 id="geometry">Geometry</h1>
-<p>The Geometry.</p>
-<h2 id="constructor">Constructor</h2>
-<pre><code class="lang-javascript">new G3D.Geometry(mesh);
+          <div class="body"><h1 id="arcrotatecamera">ArcRotateCamera</h1>
+<p>The camera moving by a sphere polar coordinates. Extends from Camera.</p>
+<h2 id="contructor">Contructor</h2>
+<pre><code class="lang-javascript">new G3D.ArcRotateCamera(scene);
 </code></pre>
 <h3 id="options">options</h3>
 <table>
@@ -60,9 +49,9 @@
 </thead>
 <tbody>
 <tr>
-<td>mesh</td>
-<td>G3D.Mesh</td>
-<td>the geometry&#39;s mesh</td>
+<td>scene</td>
+<td>G3D.Scene</td>
+<td>the g3d scene you want to put the camera in</td>
 </tr>
 </tbody>
 </table>
@@ -77,27 +66,34 @@
 </thead>
 <tbody>
 <tr>
-<td>vertices</td>
-<td>[Number]</td>
-<td>the vertices array</td>
+<td>radius</td>
+<td>Number</td>
+<td>the distance between camera and it&#39;s look at point (center point)</td>
 </tr>
 <tr>
-<td>normals</td>
-<td>[Number]</td>
-<td>the normal array</td>
+<td>alpha</td>
+<td>Number</td>
+<td>the alpha angle (on X-Z plane), from 0 to 360</td>
 </tr>
 <tr>
-<td>uvs</td>
-<td>[Number]</td>
-<td>the uv array</td>
-</tr>
-<tr>
-<td>indices</td>
-<td>{[key]: [Number]}</td>
-<td>the indice array collection</td>
+<td>beta</td>
+<td>Number</td>
+<td>the beta angle (vertical to Y axis), from -180 to 180</td>
 </tr>
 </tbody>
 </table>
+<h2 id="methods">Methods</h2>
+<p>There&#39;s no public methods for <code>Engine</code>.</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="lang-javascript">const camera = new G3D.ArcRotateCamera(scene);
+
+camera.alpha = 90;
+camera.beta = 45;
+camera.radius = 500;
+
+camera.near = 1;
+camera.far = 3000;
+</code></pre>
 </div>
         </div>
       </div>

@@ -147,6 +147,19 @@ html, body{
                     color: #fff;
                     background-color: rgb(7, 139, 252);
                     border-radius: 5px;
+
+                    a{
+                        text-decoration: none;
+                        &:link{
+                            color: #fff;
+                        }
+                        &:active{
+                            color: #fff;
+                        }
+                        &:visited{
+                            color: #fff;
+                        }
+                    }
                 }
             }
 
@@ -243,7 +256,7 @@ html, body{
             }
 
             .description{
-                font-size: 15px;
+                font-size: 18px;
                 color: #777;
                 padding: 20px 140px;
             }
@@ -335,14 +348,17 @@ html, body{
             }
 
             .description{
-                font-size: 15px;
+                font-size: 18px;
                 color: #777;
                 padding: 20px 140px;
             }
 
             .blueprint{
                 height: 500px;
-
+                margin-top: 80px;
+                .title{
+                    margin-bottom: 30px;
+                }
             }
         }
     }
@@ -467,7 +483,8 @@ html, body{
 iframe.playground{
     display: block;
     width: 1000px;
-    height: 200px;
+    height: 700px;
     margin: 20px auto;
-    border: 1px solid rgb(71, 71, 71);
+    border: 1px solid #aaa;
+    box-shadow: #ccc 2px 0px 4px;
 }
