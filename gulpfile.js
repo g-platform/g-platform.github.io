@@ -30,6 +30,13 @@ const templates = {
             pretty: true
         }
     ),
+    ['gcanvas-coorperation']: pug.compile(
+        fs.readFileSync('./template/gcanvas-coorperation.pug', 'utf-8'),
+        {
+            filename: './template/gcanvas-coorperation.pug',
+            pretty: true
+        }
+    ),
     g3d: pug.compile(
         fs.readFileSync('./template/g3d.pug', 'utf-8'),
         {
@@ -91,7 +98,8 @@ gulp.task('build', ['less'], function () {
     fs.writeFileSync('./docs/index.html', templates.index(option));
     fs.writeFileSync('./docs/gcanvas.html', templates.gcanvas(option));
     fs.writeFileSync('./docs/g3d.html', templates.g3d(option));
-
+    fs.writeFileSync('./docs/gcanvas-coorperation.html', templates['gcanvas-coorperation'](option));
+    
     const docsData = {};
     glob.sync('./sources/*/*.md').forEach(fileName => {
         const [dot, source, scope, name] = fileName.split('/');

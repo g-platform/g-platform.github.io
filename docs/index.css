@@ -347,6 +347,55 @@ body {
   height: 100px;
   margin: 50px;
 }
+.gcanvas .content {
+  width: 1080px;
+  margin: auto;
+  padding: 100px;
+}
+.gcanvas .content .coorp-item {
+  margin-bottom: 50px;
+  padding: 50px;
+  border: 1px solid #eee;
+  display: flex;
+  box-shadow: 0px 2px 5px #ccc;
+  overflow: hidden;
+}
+.gcanvas .content .coorp-item .item {
+  width: 50%;
+}
+.gcanvas .content .coorp-item .item img {
+  height: 300px;
+}
+.gcanvas .content .coorp-item .item .title {
+  font-size: 30px;
+}
+.gcanvas .content .coorp-item .item .description {
+  margin-top: 20px;
+}
+.gcanvas .content .coorp-item .left {
+  width: 50%;
+}
+.gcanvas .content .coorp-item .left img {
+  height: 300px;
+}
+.gcanvas .content .coorp-item .left .title {
+  font-size: 30px;
+}
+.gcanvas .content .coorp-item .left .description {
+  margin-top: 20px;
+}
+.gcanvas .content .coorp-item .right {
+  width: 50%;
+}
+.gcanvas .content .coorp-item .right img {
+  height: 300px;
+}
+.gcanvas .content .coorp-item .right .title {
+  font-size: 30px;
+}
+.gcanvas .content .coorp-item .right .description {
+  margin-top: 20px;
+}
 .g3d .header {
   background-color: #474747;
   height: 40px;
