@@ -70,8 +70,27 @@ html, body{
 
 .footer{
     clear: both;
-    height: 256px;
+    height: 170px;
     background-color: rgb(51, 51, 51);
+
+    .content{
+        width: 1280px;
+        margin: auto;
+
+        .open-source-icon{
+            padding-top: 40px;
+            padding-bottom: 40px;
+            display: block;
+        }
+        .license{
+            color: rgba(255,255,255,0.7);
+        }
+        .copyright{
+            color: rgba(255,255,255,0.7);
+            float: right;
+            margin-top: -18px;
+        }
+    }
 }
 
 .index{
@@ -262,20 +281,62 @@ html, body{
             }
 
             .blueprint{
-                height: 500px;
+                height: 550px;
+                img{
+                    display: block;
+                    width: 1280px;
+                    margin: auto;
+                }
 
             }
         }
     }
 
     .archi{
-        height: 600px;
+        height: 620px;
         background: linear-gradient(to bottom, rgb(10,97,252), rgb(3,189,252));
+
+        .content{
+            padding-top: 50px;
+            img{
+                width: 700px;
+                margin: auto;
+                display: block;
+            }
+        }
     }
 
     .usage{
-        height: 600px;
         background: #fff;
+
+        .content{
+            width: 1280px;
+            margin: auto;
+            padding-bottom: 50px;
+
+            .title{
+                padding-top: 50px;
+                text-align: center;
+                font-size: 30px;
+            }
+
+            img{
+                width: 800px;
+                display: block;
+                margin: auto;
+            }
+
+            .user-list{
+                padding-bottom: 50px;
+                display: flex;
+                justify-content: center;
+                .user-item{
+                    width: 100px;
+                    height: 100px;
+                    margin: 50px;
+                }
+            }
+        }
     }
 }
 
@@ -354,7 +415,7 @@ html, body{
             }
 
             .blueprint{
-                height: 500px;
+                height: 450px;
                 margin-top: 80px;
                 .title{
                     margin-bottom: 30px;
