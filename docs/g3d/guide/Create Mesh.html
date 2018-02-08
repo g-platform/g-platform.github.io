@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta content="text/html">
+    <meta charset="utf-8">
+    <title>G3D - A pure WebGL-compatible 3D render engine, works without DOM API</title>
+    <link rel="icon" href="../../../assets/favicon-g3d.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../index.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="menu">
+        <div class="item"><a class="link" href="../../"><img class="logo" src="../../../assets/logo-gplatform.png"></a></div>
+        <div class="item"><a class="link" href="../../gcanvas.html">GCanvas</a></div>
+        <div class="item"><a class="link" href="../../g3d.html">G3D</a></div>
+        <div class="item-right"><a class="link" href="https://github.com/alibaba/GPlatform" target="_blank"><img class="logo" src="../../../assets/logo-github.png"></a></div>
+      </div>
+    </div>
+    <div class="g3d">
+      <div class="header">
+        <div class="menu">
+          <div class="item"><a class="link" href="../..//gcanvas.html"><img class="logo" src="../../../assets/logo-g3d.png"></a></div>
+          <div class="item"><a class="link" href="../../g3d/docs/Engine.html">Docs</a></div>
+          <div class="item"><a class="link" href="../../g3d/guide/First Steps.html">Guide</a></div>
+          <div class="item"><a class="link" href="https://gplatformteam.github.io/g3d-playground/docs/">Playground</a></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="content">
+          <div class="index">
+            <ol>
+              <li class="item"><a href="./First Steps.html">First Steps</a></li>
+              <li class="item"><a href="./Positions and Rotations.html">Positions and Rotations</a></li>
+              <li class="item"><a href="./Create Mesh.html">Create Mesh</a></li>
+            </ol>
+          </div>
+          <div class="body"><h1 id="create-mesh">Create Mesh</h1>
+<p>We can create mesh through 3 ways. </p>
+<ol>
+<li>Create predefined shaped mesh.</li>
+<li>Create custom mesh, mannually specify vertices, normals and so on.</li>
+<li>Create mesh from 3d model file.</li>
+</ol>
+<p>Let&#39;s walk throught one by one.</p>
+<h2 id="create-predefined-shaped-mesh-">Create predefined shaped mesh.</h2>
+<p>Last chapter we created a cube-shape mesh. Actually G3D allows us to create a number of shapes: Sphere, Cylinder, Cone, Plane(ground).</p>
+<p>See the following case:</p>
+<iframe class="playground" src="https://gplatformteam.github.io/g3d-playground/docs/?embed#item=shapes"></iframe>
+
+<p>We created a sphere mesh by callding <code>G3D.MeshBuilder.createSphere</code>. The first argument is the <code>scene</code> object, the second is sphere&#39;s radius. There&#39;s two optional arguments (the third and the fourth one), widthSegs and heightSegs, which decides how much vertices the mesh should have. Larger the number, smoother the curve of the mesh will be.</p>
+<pre><code class="lang-javascript">mesh = G3D.MeshBuilder.createSphere(scene, 1);
+</code></pre>
+<p>Basiclly, the <code>MeshBuider.createXXX</code> methods follow this pattern:</p>
+<ul>
+<li>First argument should be your scene object.</li>
+<li>Following is one or more arguments representing the size of the mesh.</li>
+<li>Last is one or more arguments is the curve&#39;s segments number.</li>
+</ul>
+<p>Read the <a href="../docs/MeshBuilder">API Reference</a> for more information.</p>
+<p>Try uncomment one of these lines and comment other lines, to see what kind of mesh it will create.</p>
+<pre><code class="lang-javascript">    mesh = G3D.MeshBuilder.createSphere(scene, 1);
+    // mesh = G3D.MeshBuilder.createGround(scene, 2, 1);
+    // mesh = G3D.MeshBuilder.createCylinder(scene, 1, 1);
+    // mesh = G3D.MeshBuilder.createCone(scene, 1, 1);
+    // mesh = G3D.MeshBuilder.createCube(scene, 1);
+</code></pre>
+<h2 id="create-custom-mesh">Create Custom Mesh</h2>
+<p>You can also create custom mesh by mannually specify the mesh&#39;s geometry vertices, normals and so on.</p>
+<p>See the following example:</p>
+<iframe class="playground" src="https://gplatformteam.github.io/g3d-playground/docs/?embed#item=custom-geometry"></iframe>
+
+<p>In <code>createCustomTriangleMesh</code> method, we call <code>new G3D.Mesh</code> to create an empty mesh.</p>
+<pre><code class="lang-javascript">const mesh = new G3D.Mesh(scene);
+</code></pre>
+<p>We got a mesh instance, which structure is:</p>
+<ul>
+<li>mesh: instance of <code>G3D.Mesh</code><ul>
+<li>geometry: instance of <code>G3D.Geometry</code><ul>
+<li>vertices: array of <code>Number</code>, default is empty (<code>[]</code>)</li>
+<li>normals: array of <code>Number</code>, default is empty</li>
+<li>uvs: array of <code>Number</code></li>
+<li>indices: object<ul>
+<li>default: array of <code>Number</code>, default is empty. <code>default</code> is a default name, which maps the material with the same name in <code>materials</code>. A mesh may has multiple indices arrays and materials. For example, <code>mesh.geometry.indices.default</code> maps with <code>mesh.materials.default</code>, also <code>mesh.geometry.indices.foo</code> maps with <code>mesh.materials.foo</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>materials: object<ul>
+<li>default: instance of <code>G3D.StandardMaterial</code>, maps with indices array with the same name <code>default</code> in <code>geometry.indices</code> (<code>geometry.indices.default</code>, ie). More details in material instance will be discussed in later chapters.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>If we want to create a custom mesh, we need to manually fill <code>geometry.vertices</code>, <code>geometry.normals</code>, <code>geometry.uvs</code>, <code>geometry.indice.default</code>, as following:</p>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="content"></div>
+    </div>
+  </body>
+</html>
