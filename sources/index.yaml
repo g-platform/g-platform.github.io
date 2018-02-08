@@ -1,13 +1,17 @@
 
 docs:
 
-  gcanvas-docs: 
-    Read Me: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/README.MD
+  gcanvas-docs:
+    API Summary: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
+    Weex Setup Guide[Android]: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Android_Setup_Weex.md
+    Weex Setup Guide[iOS]: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_iOS_Setup_Weex.md
+    Weex Setup Guide[Javascript]: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_JS_Use_Weex.md
+    ReactNative Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Setup_ReactNative.md
 
-    
+
   gcanvas-guide:
-    ArcRotateCamera: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/ArcRotateCamera.md
-    Engine: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/Engine.md
+    How it works: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/An_Introduction_to_GCanvas.md
+    Customize your own bridge: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Custom_GCanvas_Bridge.md
 
   g3d-docs:
     ArcRotateCamera: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/ArcRotateCamera.md
@@ -23,10 +27,9 @@ docs:
     RawMaterial: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/RawMaterial.md
     Scene: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/Scene.md
     StandardMaterial: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/StandardMaterial.md
-    
+
   g3d-guide:
     First Steps: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/First Steps.md
     Positions and Rotations: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/Positions and Rotations.md
     Create Mesh: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/Create Mesh.md
     Raw Material: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/Raw Material.md
-    
