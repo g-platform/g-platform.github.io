@@ -439,6 +439,9 @@ body {
 .doc table tbody tr td:last-child {
   border-right: none;
 }
+.doc img {
+  max-width: 900px;
+}
 iframe.playground {
   display: block;
   width: 900px;

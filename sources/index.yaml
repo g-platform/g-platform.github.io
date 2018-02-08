@@ -8,7 +8,6 @@ docs:
     Weex Setup Guide[Javascript]: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_JS_Use_Weex.md
     ReactNative Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Setup_ReactNative.md
 
-
   gcanvas-guide:
     How it works: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/An_Introduction_to_GCanvas.md
     Customize your own bridge: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Custom_GCanvas_Bridge.md

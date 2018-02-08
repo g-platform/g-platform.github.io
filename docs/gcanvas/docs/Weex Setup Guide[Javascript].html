@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta content="text/html">
+    <meta charset="utf-8">
+    <title>GCanvas - Draw to your devices directly with Javascript</title>
+    <link rel="icon" href="../../../assets/favicon-gcanvas.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../index.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="menu">
+        <div class="item"><a class="link" href="../../"><img class="logo" src="../../../assets/logo-gplatform.png"></a></div>
+        <div class="item"><a class="link" href="../../gcanvas.html">GCanvas</a></div>
+        <div class="item"><a class="link" href="../../g3d.html">G3D</a></div>
+        <div class="item-right"><a class="link" href="https://github.com/alibaba/GPlatform" target="_blank"><img class="logo" src="../../../assets/logo-github.png"></a></div>
+      </div>
+    </div>
+    <div class="gcanvas">
+      <div class="header">
+        <div class="menu">
+          <div class="item"><a class="link" href="../../gcanvas.html"><img class="logo" src="../../../assets/logo-gcanvas.png"></a></div>
+          <div class="item"><a class="link" href="../../gcanvas/docs/API Summary.html">Docs</a></div>
+          <div class="item"><a class="link" href="../../gcanvas/guide/How it works.html">Guide</a></div>
+          <div class="item"><a class="link" href="../../">Coorperation</a></div>
+          <div class="item"><a class="link" href="../../">Playground</a></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="content">
+          <div class="index">
+            <ol>
+              <li class="item"><a href="./API Summary.html">API Summary</a></li>
+              <li class="item"><a href="./Weex Setup Guide[Android].html">Weex Setup Guide[Android]</a></li>
+              <li class="item"><a href="./Weex Setup Guide[iOS].html">Weex Setup Guide[iOS]</a></li>
+              <li class="item"><a href="./Weex Setup Guide[Javascript].html">Weex Setup Guide[Javascript]</a></li>
+              <li class="item"><a href="./ReactNative Setup Guide.html">ReactNative Setup Guide</a></li>
+            </ol>
+          </div>
+          <div class="body"><h2 id="usage">Usage</h2>
+<p>To use GCanvas, you should import GCanvas library through a <code>&lt;script&gt;</code> tag.</p>
+<pre><code class="lang-html">&lt;script src=&quot;gcanvas-cordova-bridge.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;gcanvas-2d.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<p><code>gcanvas-cordova-bridge.min.js</code> and <code>gcanvas-2d.min.js</code> locates in <code>js/src/dist</code>. They provides <code>window.GCanvas</code> object to use.</p>
+<blockquote>
+<p>We provide two bridges, <code>gcanvas-cordova-bridge.min.js</code> for Android and <code>gcanvas-webview-javascript-bridge.min.js</code> for iOS, respectively depends on the implementation.</p>
+<p>When useing WebGL, you need to import <code>gcanvas-webgl.min.js</code> instead of <code>gcanvas-2d.min.js</code>.</p>
+</blockquote>
+<p>In your app, proxy a <code>Canvas</code> element to use GCanvas.</p>
+<pre><code class="lang-javascript">var canvas = document.getElementById(&#39;the-canvas&#39;);
+
+GCanvas.proxy(canvas, function(){
+  var context = canvas.getContext(&#39;2d&#39;);
+
+  // continue your app
+
+})
+</code></pre>
+<p>Basically, when <code>GCanvas.proxy</code> is called, a mask the same size with the canvas will be placed upon your page. When you draw something on the canvas, you actually draw on the mask.</p>
+<ol>
+<li>You should not call <code>getContext</code> before <code>proxy</code>&#39;s callback function is called.</li>
+<li>The mask will be placed at the position of the canvas <strong>when <code>GCanvas.proxy</code> is called</strong>. Further position changing (scroll, eg) will not change the mask&#39;s position.</li>
+<li>You can proxy only one canvas at one page.</li>
+</ol>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="content"></div>
+    </div>
+  </body>
+</html>

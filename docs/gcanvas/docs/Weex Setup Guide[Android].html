@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta content="text/html">
+    <meta charset="utf-8">
+    <title>GCanvas - Draw to your devices directly with Javascript</title>
+    <link rel="icon" href="../../../assets/favicon-gcanvas.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../index.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="menu">
+        <div class="item"><a class="link" href="../../"><img class="logo" src="../../../assets/logo-gplatform.png"></a></div>
+        <div class="item"><a class="link" href="../../gcanvas.html">GCanvas</a></div>
+        <div class="item"><a class="link" href="../../g3d.html">G3D</a></div>
+        <div class="item-right"><a class="link" href="https://github.com/alibaba/GPlatform" target="_blank"><img class="logo" src="../../../assets/logo-github.png"></a></div>
+      </div>
+    </div>
+    <div class="gcanvas">
+      <div class="header">
+        <div class="menu">
+          <div class="item"><a class="link" href="../../gcanvas.html"><img class="logo" src="../../../assets/logo-gcanvas.png"></a></div>
+          <div class="item"><a class="link" href="../../gcanvas/docs/API Summary.html">Docs</a></div>
+          <div class="item"><a class="link" href="../../gcanvas/guide/How it works.html">Guide</a></div>
+          <div class="item"><a class="link" href="../../">Coorperation</a></div>
+          <div class="item"><a class="link" href="../../">Playground</a></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="content">
+          <div class="index">
+            <ol>
+              <li class="item"><a href="./API Summary.html">API Summary</a></li>
+              <li class="item"><a href="./Weex Setup Guide[Android].html">Weex Setup Guide[Android]</a></li>
+              <li class="item"><a href="./Weex Setup Guide[iOS].html">Weex Setup Guide[iOS]</a></li>
+              <li class="item"><a href="./Weex Setup Guide[Javascript].html">Weex Setup Guide[Javascript]</a></li>
+              <li class="item"><a href="./ReactNative Setup Guide.html">ReactNative Setup Guide</a></li>
+            </ol>
+          </div>
+          <div class="body"><h1 id="gcanvas-android-guide">GCanvas Android Guide</h1>
+<h3 id="integrate-to-android">Integrate to Android</h3>
+<p>Tip: The following documents assume that you already hava a certain Android development experience.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Make sure the following configuration is completed:</p>
+<ul>
+<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">JDK</a>  &gt;= 1.7 , and configure the environment variable</li>
+<li>Android SDK installed and configure the environment variable</li>
+<li>Android SDK version 23 (compileSdkVersion in build.gradle)</li>
+<li>SDK build tools version 21.1.2 (buildToolsVersion in build.gradle)</li>
+<li>Android Support Repository &gt;= 17 (for Android Support Library)</li>
+<li><a href="https://weex.apache.org/">Weex</a> SDK &gt;= 0.16.X</li>
+</ul>
+<h3 id="quick-to-use">Quick to use</h3>
+<p>The steps are as follows:</p>
+<ol>
+<li><p>Create an Android project. There is nothing to be specified, according to your habits to.</p>
+</li>
+<li><p><strong>At this moment, our publication is being reviewed by Maven. Once published, source code dependency will be changed to AAR dependency. </strong>
+Download source code, update build.gradle by adding the following dependencies:</p>
+<pre><code class="lang-groovy">compile project &#39;:bridges:weex-bridge:android:weex_bridge&#39;
+</code></pre>
+</li>
+<li><p>Register GCanvas Module and Component to your Weex Application.</p>
+</li>
+</ol>
+<pre><code class="lang-java">WXSDKEngine.registerModule(&quot;gcanvas&quot;, GCanvasWeexModule.class);
+WXSDKEngine.registerComponent(&quot;gcanvas&quot;, WXGCanvasWeexComponent.class);
+</code></pre>
+<ol>
+<li>Modify AndroidManifest.xml, add below line to acquire OpenGL ES features.</li>
+</ol>
+<pre><code class="lang-xml">&lt;uses-feature android:glEsVersion=&quot;0x00020000&quot; /&gt;
+</code></pre>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="content"></div>
+    </div>
+  </body>
+</html>

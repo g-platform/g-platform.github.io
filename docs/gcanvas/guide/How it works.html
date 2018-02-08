@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta content="text/html">
+    <meta charset="utf-8">
+    <title>GCanvas - Draw to your devices directly with Javascript</title>
+    <link rel="icon" href="../../../assets/favicon-gcanvas.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../index.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="menu">
+        <div class="item"><a class="link" href="../../"><img class="logo" src="../../../assets/logo-gplatform.png"></a></div>
+        <div class="item"><a class="link" href="../../gcanvas.html">GCanvas</a></div>
+        <div class="item"><a class="link" href="../../g3d.html">G3D</a></div>
+        <div class="item-right"><a class="link" href="https://github.com/alibaba/GPlatform" target="_blank"><img class="logo" src="../../../assets/logo-github.png"></a></div>
+      </div>
+    </div>
+    <div class="gcanvas">
+      <div class="header">
+        <div class="menu">
+          <div class="item"><a class="link" href="../../gcanvas.html"><img class="logo" src="../../../assets/logo-gcanvas.png"></a></div>
+          <div class="item"><a class="link" href="../../gcanvas/docs/API Summary.html">Docs</a></div>
+          <div class="item"><a class="link" href="../../gcanvas/guide/How it works.html">Guide</a></div>
+          <div class="item"><a class="link" href="../../">Coorperation</a></div>
+          <div class="item"><a class="link" href="../../">Playground</a></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="content">
+          <div class="index">
+            <ol>
+              <li class="item"><a href="./How it works.html">How it works</a></li>
+              <li class="item"><a href="./Customize your own bridge.html">Customize your own bridge</a></li>
+            </ol>
+          </div>
+          <div class="body"><h2 id="1-what">1. What</h2>
+<p>You have likely used or heard about canvas of HTML5 which is designed to give developers more capabilities of writing animations. GCanvas is a solution that provides browser-like HTML5 canvas APIs in-application(Android/iOS), and these APIs are implemented in C++ with OpenGL ES. The developers can write animations with JavaScript just like what they do in a WebView/browser.
+As the render core is written in C++ based on OpenGL ES, code that runs on GCanvas can fully benefit from GPU acceleration.
+The below video shows you a first image how it works and the difference between GCanvas and WebView:</p>
+<p><a href="http://cloud.video.taobao.com/play/u/924183284/p/1/e/6/t/1/53325354.mp4">FishIETank Compare Video</a></p>
+<p>The below code shows how it works in GCanvas:</p>
+<pre><code class="lang-html">&lt;body&gt;
+&lt;canvas id=&quot;canvas&quot; width=300 height=200&gt;&lt;/canvas&gt;
+
+&lt;script src=&quot;../../js/dist/gcanvas-cordova-bridge.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;../../js/dist/gcanvas-2d.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+  var canvas = document.getElementById(&#39;canvas&#39;);
+  function init() {
+    var context = canvas.getContext(&#39;2d&#39;);
+
+    var image = new Image();
+    image.src = &#39;//img.alicdn.com/tps/TB14Zf0PVXXXXbNXVXXXXXXXXXX-400-300.png&#39;;
+    image.onload = loop;
+
+    function loop() {
+      context.clearRect(0, 0, 300, 200);
+      context.save();
+      context.translate(150, 100);
+      context.rotate((Date.now() / 500) % (Math.PI * 2));
+      context.drawImage(image, -(image.width / 2), -(image.height / 2));
+      context.restore();
+      requestAnimationFrame(loop);
+    }
+  }
+  GCanvas.proxy(canvas, init);
+&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+<p>As you can see, the difference is very little and it is easily to be compatible with in-WebView.</p>
+<p>Besides the Canvas APIs, audio is also supported and integrated in this project.</p>
+<h2 id="2-why">2. Why</h2>
+<p>The project of GCanvas was started in 2013. At that time, canvas animation running on a mobile app was really a nightmare(at least in most cases). A few severe problems prevented developers utilizing the canvas in a wide way:</p>
+<ul>
+<li>slow performance</li>
+<li>bad compatibility(especially on Android)</li>
+<li>lack of completeness of canvas APIs</li>
+</ul>
+<p>To solve the problems mentioned above, we decided to write a cross-platform solutions and provide APIs in JavaScript fully aligned with HTML5 canvas APIs. To ensure the performance, C++ with OpenGL ES appears to be the only way.</p>
+<p>Time has passed, powerful mobile hybrid frameworks such as ReactNative/Weex have become popular, but Canvas/WebGL has been scarcely implemented on these frameworks. So we have GCanvas integrated into the most popular framework to provide high performance canvas APIs.</p>
+<h2 id="3-how">3. How</h2>
+<p>In short, the principle of GCanvas is quite simple:</p>
+<ul>
+<li>intercepts draw calls of canvas</li>
+<li>reforms these draw calls and transfer them to render core implemented in C++</li>
+<li>runs OpenGL ES APIs per draw calls</li>
+</ul>
+<p>The below diagram shows the high-level design of GCanvas:</p>
+<p><img src="http://git.cn-hangzhou.oss-cdn.aliyun-inc.com/uploads/gcanvas/gcanvas/4c1e9581af4a374331cd3afb4c7db84d/GCanvas_HLD.png" alt="GCanvas_HLD"></p>
+<h3 id="3-1-canvas-delegate-layer">3.1 Canvas Delegate Layer</h3>
+<p>Canvas Delegate Layer is responsible for mimicing canvas APIs. It intercepts the calls of origin canvas APIs and converts the call to a command sequence.
+The code is under ./gcanvas/js/, which mainly includes core files in ./src/core/ and bridge files in ./bridge/.</p>
+<p>A simple workflow is as below:</p>
+<p><img src="http://git.cn-hangzhou.oss-cdn.aliyun-inc.com/uploads/gcanvas/gcanvas/039090e325495e896b5f69dd3a3828fa/JS_Layer_Design.png" alt="design"></p>
+<h3 id="3-2-bridge-layer">3.2 Bridge Layer</h3>
+<p>Bridge Layer is responsible for setting up a bridge to interact between JavaScript and OS native languages.</p>
+<p>There are typically 2 ways to achieve this goal. One way is to implement it based on JSBridge, for example, Cordova is supposed to be a good choice. Another way is to implement it based on JSBinding, for example, V8 on Android and JSC on iOS.</p>
+<p>We have integrated an Android bridge(based on Cordova) &amp; an iOS bridge(based on WebViewJavascriptBridge) into this project. It is only used to demonstrate how a bridge plug-in can be implemented. Any implementation in this layer is supposed to  be replaced or extended easily. The code of Android plug-in is under ./gcanvas/android/android_cordova_bridge_plugin/ and the code of iOS plug-in is under ./gcanvas/ios/GCanvasJSBridge/.</p>
+<h3 id="3-3-platform-adapter-layer">3.3 Platform Adapter Layer</h3>
+<p>Operation System Adapter Layer is responsible for relaying draw calls, responding OS events, like touch etc. and other OS-related operations that cannot be processed in Render Core Layer. The code of Android is under ./gcanvas/android/android_library/ and the code of iOS is under ./gcanvas/ios/Classes/.</p>
+<h4 id="3-3-1-android-simple-workflow">3.3.1 Android simple workflow</h4>
+<p><img src="http://git.cn-hangzhou.oss-cdn.aliyun-inc.com/uploads/gcanvas/gcanvas/42fa4dbe148a09baaef24b8ca132d3d2/gcanvas-android-adapter_layer_brief.png" alt="gcanvas-android-archive_1"></p>
+<h4 id="3-3-2-ios-simple-workflow">3.3.2 iOS simple workflow</h4>
+<p><img src="http://git.cn-hangzhou.oss-cdn.aliyun-inc.com/uploads/gcanvas/gcanvas/c20f34aafadc65bfa6c7af91f817c02c/GCanvas_brief_iOS.png" alt="GCanvas_brief_iOS"></p>
+<h3 id="3-4-render-core-layer">3.4 Render Core Layer</h3>
+<p>Render Core Layer is responsible for implementing canvas APIs one by one. It contains a pipeline that consumes a draw call and produces a frame that can be rendered by upper layers or reused as a new input by a new draw call(FrameBuffer Object). The developers can simply look on it as a tiny render engine that provides a lot of APIs aligned with HTML5 canvas, which is implemented by OpenGL ES 2.0. The code is under ./gcanvas/core/.</p>
+<p>A simple workflow is as below:
+<img src="http://git.cn-hangzhou.oss.aliyun-inc.com/uploads/gcanvas/gcanvas/97d10777075cbe0f9134beeea94a54e3/GCanvas_Render_Core_Layer_Detail_Design.png" alt="GCanvas_Render_Core_Layer_Detail_Design"></p>
+<h3 id="3-5-demo">3.5 Demo</h3>
+<h4 id="3-5-1-android-demo">3.5.1 Android demo</h4>
+<p>./gcanvas/android/android_cordova_bridge_demo</p>
+<h4 id="3-5-2-ios-demo">3.5.2 iOS demo</h4>
+<p>./gcanvas/ios/GCanvasJSBridgeDemo</p>
+<h3 id="3-6-test">3.6 Test</h3>
+<p>For quality assurance, test project is provided in the directory ./gcanvas/test/ which includes three parts: Android test app, iOS test App and UI test project.
+The diagram below shows their workflow in simple:
+<img src="http://git.cn-hangzhou.oss-cdn.aliyun-inc.com/uploads/gcanvas/gcanvas/7efe726528156d99a11c84496657577a/gcanvas_testproject_architecture.png" alt="gcanvas_testproject_architecture"></p>
+<h4 id="3-6-1-test-app-test-project">3.6.1 Test App &amp; Test Project</h4>
+<p>Two test apps are provided to check the test environment and add test cases which are both the target apps of the test project.</p>
+<p>Test app includes all the html cases operated by the test project by appium. If you want to run the cases exist, you can run the shell script directly;</p>
+<p>but if you want to add js case, you need to change the TestApp, for detail you can read the readme.</p>
+<h4 id="3-6-2-test-environment">3.6.2 Test Environment</h4>
+<p>Appium: Appium1.5.3</p>
+<p>java: Maven 3.3.9，JDK 1.8.0_111</p>
+<p>iOS (required) : Xcode 7</p>
+<p>Android: Android device</p>
+<h4 id="3-6-3-cases">3.6.3 Cases</h4>
+<p>The test cases can be divided into two parts, one for gwebgl.js and another for gcanvas.js, both include the scenerio rendered by WebView and GCanvasView as you can see in TestApp.</p>
+<p>gcanvas.js test suite: refer to the test suite of the html canvas on w3school;</p>
+<p>gwebgl.js test suite: water ball, shark and others are drawed by the methods gwebgl.js provided.</p>
+<h4 id="3-6-4-test-results">3.6.4 Test Results</h4>
+<p>After all the environment is ready, the result can be outputed by running the run-iOS.sh/run-Android.sh/run-all.sh. A series of screenshots will be gotten after running the shell script to be matched with the base screenshots by the PicMatch Engine.<br>Pure_pixel_match and pHash are two methods can be used in the project, the former is suitable for testing in the same environment (especially the test device) and the result will not be so good if different size devices are used,
+the latter is good for testing in different environment (such different test devices), but the accuracy will be decreased for less pixel test cases (such as thin lines, small box).</p>
+<h4 id="3-6-5-others">3.6.5 Others</h4>
+<p>In order to ensure and improve the quality of the GCanvas test code, we have refer some test code specification (link)</p>
+<p>For more information about GCanvas test , such as environment installation, test project, test cases, you can read in the readme document.</p>
+<h2 id="4-future">4. Future</h2>
+<p>For now, GCanvas has a few limitation:</p>
+<ul>
+<li>does not support video</li>
+<li>part of WebGL APIs has been implemented, but not well covered.</li>
+<li>does not support new-genernation GPU architectures</li>
+</ul>
+<p>In the future, GCanvas will</p>
+<ul>
+<li>fully support WebGL APIs</li>
+<li>upgrade to OpenGL ES 3.0</li>
+<li>integrate Vulkan &amp; Metal</li>
+<li>have independent JavaScript runtime</li>
+</ul>
+<p>VR/AR market is very hot. GCanvas is going to provide more capabilities in-application for developers to practice in these areas.</p>
+<p>And, we also wants to try combining server-side rendering into GCanvas engine for high-quality realtime rendering on mobile phones.</p>
+<h2 id="5-last">5. Last</h2>
+<p>Last but not least, this project is inspired by a lot of open source projects instead of building from nothing. We should give special thanks to these projects: Chromium, Skia, Ejecta, Fast-Canvas, Cocos2d.
+We hope this project can provide more value to the community as we do gain a lot from it.</p>
+<h5 align = "right">- GCanvas Open Source Team</h5>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="content"></div>
+    </div>
+  </body>
+</html>

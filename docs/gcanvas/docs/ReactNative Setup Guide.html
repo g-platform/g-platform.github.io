@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta content="text/html">
+    <meta charset="utf-8">
+    <title>GCanvas - Draw to your devices directly with Javascript</title>
+    <link rel="icon" href="../../../assets/favicon-gcanvas.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../index.css">
+  </head>
+  <body>
+    <div class="header">
+      <div class="menu">
+        <div class="item"><a class="link" href="../../"><img class="logo" src="../../../assets/logo-gplatform.png"></a></div>
+        <div class="item"><a class="link" href="../../gcanvas.html">GCanvas</a></div>
+        <div class="item"><a class="link" href="../../g3d.html">G3D</a></div>
+        <div class="item-right"><a class="link" href="https://github.com/alibaba/GPlatform" target="_blank"><img class="logo" src="../../../assets/logo-github.png"></a></div>
+      </div>
+    </div>
+    <div class="gcanvas">
+      <div class="header">
+        <div class="menu">
+          <div class="item"><a class="link" href="../../gcanvas.html"><img class="logo" src="../../../assets/logo-gcanvas.png"></a></div>
+          <div class="item"><a class="link" href="../../gcanvas/docs/API Summary.html">Docs</a></div>
+          <div class="item"><a class="link" href="../../gcanvas/guide/How it works.html">Guide</a></div>
+          <div class="item"><a class="link" href="../../">Coorperation</a></div>
+          <div class="item"><a class="link" href="../../">Playground</a></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="content">
+          <div class="index">
+            <ol>
+              <li class="item"><a href="./API Summary.html">API Summary</a></li>
+              <li class="item"><a href="./Weex Setup Guide[Android].html">Weex Setup Guide[Android]</a></li>
+              <li class="item"><a href="./Weex Setup Guide[iOS].html">Weex Setup Guide[iOS]</a></li>
+              <li class="item"><a href="./Weex Setup Guide[Javascript].html">Weex Setup Guide[Javascript]</a></li>
+              <li class="item"><a href="./ReactNative Setup Guide.html">ReactNative Setup Guide</a></li>
+            </ol>
+          </div>
+          <div class="body"><h1 id="react-native-gcanvas">react-native-gcanvas</h1>
+<h2 id="getting-started">Getting started</h2>
+<p><code>$ npm install react-native-gcanvas --save</code></p>
+<h3 id="mostly-automatic-installation">Mostly automatic installation</h3>
+<p><code>$ react-native link react-native-gcanvas</code></p>
+<h3 id="manual-installation">Manual installation</h3>
+<h4 id="ios">iOS</h4>
+<ol>
+<li>In XCode, in the project navigator, right click <code>Libraries</code> ➜ <code>Add Files to [your project&#39;s name]</code></li>
+<li>Go to <code>node_modules</code> ➜ <code>react-native-gcanvas</code> and add <code>RNReactNativeGCanvas.xcodeproj</code></li>
+<li>In XCode, in the project navigator, select your project. Add <code>libRNReactNativeGCanvas.a</code> to your project&#39;s <code>Build Phases</code> ➜ <code>Link Binary With Libraries</code></li>
+<li>Run your project (<code>Cmd+R</code>)</li>
+</ol>
+<h4 id="android">Android</h4>
+<ol>
+<li>Open up <code>android/app/src/main/java/[...]/MainActivity.java</code></li>
+<li>Add <code>import com.reactlibrary.RNReactNativeGCanvasPackage;</code> to the imports at the top of the file</li>
+<li>Add <code>new RNReactNativeGCanvasPackage()</code> to the list returned by the <code>getPackages()</code> method</li>
+<li>Append the following lines to <code>android/settings.gradle</code>:<pre><code>    include &#39;:react-native-gcanvas&#39;
+    project(&#39;:react-native-gcanvas&#39;).projectDir = new File(rootProject.projectDir,     &#39;../node_modules/react-native-gcanvas/android&#39;)
+</code></pre></li>
+<li>Insert the following lines inside the dependencies block in <code>android/app/build.gradle</code>:<pre><code>compile project(&#39;:react-native-gcanvas&#39;)
+</code></pre></li>
+</ol>
+<h2 id="usage">Usage</h2>
+<pre><code class="lang-javascript">import GCanvasView from &#39;react-native-gcanvas&#39;;
+
+GCanvasView;
+</code></pre>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="content"></div>
+    </div>
+  </body>
+</html>
