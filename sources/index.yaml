@@ -4,7 +4,7 @@ docs:
   gcanvas-docs:
     API Summary: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
     Weex Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Setup_Weex.md
-    ReactNative Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Setup_ReactNative.md
+    ReactNative Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/bridges/react-native-bridge/react-native-gcanvas/README.md
 
   gcanvas-guide:
     How it works: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/An_Introduction_to_GCanvas.md
