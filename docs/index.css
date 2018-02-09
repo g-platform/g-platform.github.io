@@ -353,20 +353,33 @@ body {
   padding: 100px;
 }
 .gcanvas .content .coorp-item {
+  text-decoration: none;
+  display: block;
   margin-bottom: 50px;
-  padding: 50px;
+  padding: 20px;
   border: 1px solid #eee;
   display: flex;
   box-shadow: 0px 2px 5px #ccc;
   overflow: hidden;
 }
+.gcanvas .content .coorp-item:link {
+  color: #555;
+}
+.gcanvas .content .coorp-item:active {
+  color: #555;
+}
+.gcanvas .content .coorp-item:visited {
+  color: #555;
+}
 .gcanvas .content .coorp-item .item {
   width: 50%;
+  padding: 30px;
 }
 .gcanvas .content .coorp-item .item img {
   height: 300px;
 }
 .gcanvas .content .coorp-item .item .title {
+  margin-top: 100px;
   font-size: 30px;
 }
 .gcanvas .content .coorp-item .item .description {
@@ -374,11 +387,13 @@ body {
 }
 .gcanvas .content .coorp-item .left {
   width: 50%;
+  padding: 30px;
 }
 .gcanvas .content .coorp-item .left img {
   height: 300px;
 }
 .gcanvas .content .coorp-item .left .title {
+  margin-top: 100px;
   font-size: 30px;
 }
 .gcanvas .content .coorp-item .left .description {
@@ -386,11 +401,13 @@ body {
 }
 .gcanvas .content .coorp-item .right {
   width: 50%;
+  padding: 30px;
 }
 .gcanvas .content .coorp-item .right img {
   height: 300px;
 }
 .gcanvas .content .coorp-item .right .title {
+  margin-top: 100px;
   font-size: 30px;
 }
 .gcanvas .content .coorp-item .right .description {
