@@ -11,23 +11,23 @@ docs:
     Customize your own bridge: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Custom_GCanvas_Bridge.md
 
   g3d-docs:
-    ArcRotateCamera: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/ArcRotateCamera.md
-    Engine: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/Engine.md
-    Geometry: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/Geometry.md
-    LineMesh: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/LineMesh.md
-    Material: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/Material.md
-    Mesh: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/Mesh.md
-    MeshBuilder: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/MeshBuilder.md
-    MorphTargetMesh: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/MorphTargetMesh.md
-    Node: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/Node.md
-    PerspectiveCamera: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/PerspectiveCamera.md
-    RawMaterial: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/RawMaterial.md
-    Scene: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/Scene.md
-    StandardMaterial: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/docs/StandardMaterial.md
+    ArcRotateCamera: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/ArcRotateCamera.md
+    Engine: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/Engine.md
+    Geometry: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/Geometry.md
+    LineMesh: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/LineMesh.md
+    Material: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/Material.md
+    Mesh: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/Mesh.md
+    MeshBuilder: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/MeshBuilder.md
+    MorphTargetMesh: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/MorphTargetMesh.md
+    Node: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/Node.md
+    PerspectiveCamera: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/PerspectiveCamera.md
+    RawMaterial: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/RawMaterial.md
+    Scene: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/Scene.md
+    StandardMaterial: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/StandardMaterial.md
 
   g3d-guide:
-    First Steps: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/First Steps.md
-    Positions and Rotations: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/Positions and Rotations.md
-    Create Mesh: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/Create Mesh.md
-    Raw Material: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/Raw Material.md
-    Standard Material: https://raw.githubusercontent.com/alibaba/GPlatform/g3d-init/G3D/doc/guide/Standard Material.md
+    First Steps: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/guide/First Steps.md
+    Positions and Rotations: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/guide/Positions and Rotations.md
+    Create Mesh: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/guide/Create Mesh.md
+    Raw Material: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/guide/Raw Material.md
+    Standard Material: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/guide/Standard Material.md
