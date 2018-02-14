@@ -9,6 +9,7 @@ docs:
   gcanvas-guide:
     How it works: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/An_Introduction_to_GCanvas.md
     Customize your own bridge: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Custom_GCanvas_Bridge.md
+    Playground: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/playground.md
 
   g3d-docs:
     ArcRotateCamera: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/ArcRotateCamera.md
