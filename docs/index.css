@@ -273,7 +273,7 @@ body {
   text-align: center;
   font-size: 60px;
   font-weight: bolder;
-  padding-top: 270px;
+  padding-top: 165px;
 }
 .gcanvas .banner .content .description {
   text-align: center;
@@ -321,6 +321,7 @@ body {
 }
 .gcanvas .usage {
   background: #fff;
+  padding: 80px 0;
 }
 .gcanvas .usage .content {
   width: 1280px;
@@ -328,7 +329,6 @@ body {
   padding-bottom: 50px;
 }
 .gcanvas .usage .content .title {
-  padding-top: 50px;
   text-align: center;
   font-size: 30px;
 }
@@ -499,6 +499,10 @@ body {
 }
 .doc .content .index ol {
   list-style: none;
+  -webkit-margin-start: -20px;
+}
+.doc .content .index ol .item-title {
+  padding: 5px 0;
 }
 .doc .content .index ol li {
   padding: 5px 0;

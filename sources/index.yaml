@@ -1,12 +1,12 @@
 
 docs:
-
   gcanvas-docs:
-    API Summary: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
-    Weex Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Setup_Weex.md
+    Introduction: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
+    Guide:
+      Developers Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
+      API Summary: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
+      Weex Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Setup_Weex.md
     ReactNative Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/bridges/react-native-bridge/react-native-gcanvas/README.md
-
-  gcanvas-guide:
     How it works: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/An_Introduction_to_GCanvas.md
     Customize your own bridge: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Custom_GCanvas_Bridge.md
 
@@ -21,7 +21,6 @@ docs:
     MorphTargetMesh: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/MorphTargetMesh.md
     Node: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/Node.md
     PerspectiveCamera: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/PerspectiveCamera.md
-    RawMaterial: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/RawMaterial.md
     Scene: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/Scene.md
     StandardMaterial: https://raw.githubusercontent.com/alibaba/GPlatform/dev/G3D/doc/docs/StandardMaterial.md
 

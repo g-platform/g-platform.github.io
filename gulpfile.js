@@ -64,13 +64,6 @@ const templates = {
             filename: './template/gcanvas-docs.pug',
             pretty: true
         }
-    ),
-    ['gcanvas-guide']: pug.compile(
-        fs.readFileSync('./template/gcanvas-docs.pug', 'utf-8'),
-        {
-            filename: './template/gcanvas-docs.pug',
-            pretty: true
-        }
     )
 }
 
@@ -99,40 +92,37 @@ gulp.task('build', ['less'], function () {
     fs.writeFileSync('./docs/gcanvas.html', templates.gcanvas(option));
     fs.writeFileSync('./docs/g3d.html', templates.g3d(option));
     fs.writeFileSync('./docs/gcanvas-coorperation.html', templates['gcanvas-coorperation'](option));
-    
-    const docsData = {};
-    glob.sync('./sources/*/*.md').forEach(fileName => {
-        const [dot, source, scope, name] = fileName.split('/');
-        const [baseName, md] = name.split('.');
-        if (!docsData[scope]) {
-            docsData[scope] = {};
-        }
-        docsData[scope][baseName] = fs.readFileSync(fileName, 'utf-8');
-    });
 
     const configDocs = yaml.load(fs.readFileSync('./sources/index.yaml')).docs;
 
-    Object.keys(docsData).forEach(scope => {
+    Object.keys(configDocs).forEach(scope => {
 
-        const scopeData = docsData[scope];
+        function deal(docs, k, s) {
+            if (typeof docs === 'string') {
+                const content = fs.readFileSync(`./sources/${scope}/${k}.md`, 'utf-8');
 
-        Object.keys(scopeData).forEach(baseName => {
-
-            fs.outputFileSync(`./docs/${scope.split('-').join('/')}/${baseName}.html`, templates[scope](
-                {
-                    index: Object.keys(scopeData).sort(
-                        (k1, k2) => {
-                            const z1 = Object.keys(configDocs[scope]).indexOf(k1);
-                            const z2 = Object.keys(configDocs[scope]).indexOf(k2);
-                            return z1 < z2 ? -1 : z1 > z2 ? 1 : 0
+                if (content) {
+                    fs.outputFileSync(`./docs/${scope.split('-').join('/')}/${k}.html`, templates[scope](
+                        {
+                            index: configDocs[scope],
+                            content: marked(content),
+                            root: '../../'
                         }
-                    ),
-                    content: marked(scopeData[baseName]),
-                    root: '../../'
+                    ));
+                } else {
+                    throw new Error('Read source file failed, please run gulp fetch first.');
                 }
-            ));
-        })
-    })
+            } else {
+                for (let key in docs) {
+                    deal(docs[key], key, docs);
+                }
+            }
+        }
+
+        const docs = configDocs[scope];
+
+        deal(docs);
+    });
 })
 
 
@@ -140,26 +130,31 @@ gulp.task('fetch', async function () {
 
     const config = yaml.load(fs.readFileSync('./sources/index.yaml'));
 
-
-    const scopes = ['g3d-docs', 'g3d-guide', 'gcanvas-docs', 'gcanvas-guide'];
+    const scopes = [
+        'g3d-docs',
+        'g3d-guide',
+        'gcanvas-guide',
+        'gcanvas-docs'
+    ];
 
     for (let item of scopes) {
-        await dealScope(item);
+        await dealScope(config['docs'][item], item);
     }
 
-    async function dealScope(scope) {
-        const docs = config['docs'][scope];
-
+    async function dealScope(docs, scope) {
         for (let name in docs) {
             const url = docs[name];
-            try {
-                const content = await fetchAsync(url);
-                log(`Fetch ${name} success. Content length ${content.length}`);
-                fs.outputFileSync(`./sources/${scope}/${name}.md`, content);
-            } catch (e) {
-                log(`Error : fetch ${name}(${url}) failed. Message: ${e.toString()}`);
+            if (typeof url === 'string') {
+                try {
+                    const content = await fetchAsync(url);
+                    log(`Fetch ${name} success. Content length ${content.length}`);
+                    fs.outputFileSync(`./sources/${scope}/${name}.md`, content);
+                } catch (e) {
+                    log(`Error : fetch ${name}(${url}) failed. Message: ${e.toString()}`);
+                }
+            } else {
+                await dealScope(url, scope);
             }
         }
     }
-
 })
