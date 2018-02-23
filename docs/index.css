@@ -502,7 +502,12 @@ body {
   -webkit-margin-start: -20px;
 }
 .doc .content .index ol .item-title {
-  padding: 5px 0;
+  padding: 5px 0 5px 10px;
+  border-left: 5px solid #e74c3c;
+  margin-right: 30px;
+  background: #95a5a6;
+  color: #fff;
+  font-weight: bolder;
 }
 .doc .content .index ol li {
   padding: 5px 0;
@@ -510,6 +515,8 @@ body {
 }
 .doc .content .index ol li a {
   text-decoration: none;
+  margin-left: 15px;
+  display: block;
 }
 .doc .content .index ol li a:link {
   color: #555;

@@ -12,7 +12,15 @@ block main
             .content
                 .index
                     ol
-                        for name in index
-                            li.item
-                                a(href="./"+name+".html")= name
+                        - for (name in index)
+                            - if(typeof index[name] === 'string')
+                                li.item
+                                    a(href="./"+name+".html")= name
+                            - else
+                                li.item
+                                    .item-title= name
+                                    ol
+                                        -for (subname in index[name])
+                                            li.item
+                                                a(href="./"+subname+".html")= subname
                 .body!= content
