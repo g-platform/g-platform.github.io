@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta content="text/html">
+    <meta charset="utf-8">
+    <title>GCanvas - Draw to your devices directly with Javascript</title>
+    <link rel="icon" href="../../../assets/favicon-gcanvas.png" type="image/x-icon">
+    <link rel="stylesheet" href="../../index.css">
+  </head>
+  <body>
+    <div class="gcanvas">
+      <div class="header">
+        <div class="menu">
+          <div class="item"><a class="link" href="../../"><img class="logo" src="../../../assets/logo-gplatform.png"></a></div>
+          <div class="item"><a class="link" href="../../gcanvas/docs/API Summary.html">Docs</a></div>
+          <div class="item"><a class="link" href="../../gcanvas-coorperation.html">Coorperation</a></div>
+          <div class="item"><a class="link" href="../../gcanvas/guide/Playground.html">Playground</a></div>
+        </div>
+      </div>
+      <div class="doc">
+        <div class="content">
+          <div class="index">
+            <ol>
+              <li class="item"><a href="./Introduction.html">Introduction</a></li>
+              <li class="item">
+                <div class="item-title">Guide</div>
+                <ol>
+                  <li class="item"><a href="./Developer's Guide.html">Developer's Guide</a></li>
+                  <li class="item"><a href="./Integrate GCanvas on Weex.html">Integrate GCanvas on Weex</a></li>
+                  <li class="item"><a href="./Integrate GCanvas on ReactNative.html">Integrate GCanvas on ReactNative</a></li>
+                  <li class="item"><a href="./Custom Bridge.html">Custom Bridge</a></li>
+                  <li class="item"><a href="./Contribute to GCanvas.html">Contribute to GCanvas</a></li>
+                </ol>
+              </li>
+              <li class="item">
+                <div class="item-title">Design</div>
+                <ol>
+                  <li class="item"><a href="./Architecutre.html">Architecutre</a></li>
+                </ol>
+              </li>
+              <li class="item">
+                <div class="item-title">Reference</div>
+                <ol>
+                  <li class="item"><a href="./Graphics 2D.html">Graphics 2D</a></li>
+                  <li class="item"><a href="./WebGL.html">WebGL</a></li>
+                </ol>
+              </li>
+              <li class="item"><a href="./About.html">About</a></li>
+              <li class="item"><a href="./Playground.html">Playground</a></li>
+            </ol>
+          </div>
+          <div class="body"><h3 id="usage">Usage</h3>
+<p>For gcanvas is designed to follow web canvas API, find details of each API in</p>
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API</a></p>
+<p>###</p>
+<h3 id="support">Support</h3>
+<p>Legend</p>
+<ul>
+<li>Implemented: API is implemented .</li>
+<li><strong>Undefined</strong>: API is not defined.</li>
+<li><em>Empty</em>: API is defined but not implemented.</li>
+</ul>
+<p>Context
+| API Name | API Type | Status |
+| :--- | :--- | :--- |
+| fillStyle | Attribute getter/setter | Implemented |
+| strokeStyle | Attribute getter/setter | Implemented |
+| shadowColor | Attribute getter/setter | <strong>Undefined</strong> |
+| shadowBlur | Attribute getter/setter | <strong>Undefined</strong> |
+| shadowOffsetX | Attribute getter/setter | <strong>Undefined</strong> |
+| shadowOffsetY | Attribute getter/setter | <strong>Undefined</strong> |
+| createLinearGradient() | Method | Implemented |
+| createPattern() | Method | Implemented |
+| createRadialGradient() | Method | Implemented |
+| addColorStop() | Method | Implemented |
+| isPointInPath() scale() | Method | <em>Empty</em> |
+| createEvent() | Method | <strong>Undefined</strong> |
+| toDataURL() | Method | <strong>Undefined</strong> |
+| lineCap | Attribute getter/setter | Implemented |
+| lineJoin | Attribute getter/setter | Implemented |
+| lineWidth | Attribute getter/setter | Implemented |
+| miterLimit | Attribute getter/setter | Implemented |
+| font | Attribute getter/setter | Implemented |
+| textAlign | Attribute getter/setter | Implemented |
+| textBaseline | Attribute getter/setter | Implemented |
+| globalAlpha | Attribute getter/setter | Implemented |
+| globalCompositeOperation | Attribute getter/setter | Implemented |
+| rect() | Method | Implemented |
+| fillRect() | Method | Implemented |
+| strokeRect() | Method | Implemented |
+| clearRect() | Method | Implemented |
+| fill() | Method | Implemented |
+| stroke() | Method | Implemented |
+| beginPath() | Method | Implemented |
+| moveTo() | Method | Implemented |
+| closePath() | Method | Implemented |
+| lineTo() | Method | Implemented |
+| clip() | Method | Implemented |
+| quadraticCurveTo() | Method | Implemented |
+| bezierCurveTo() | Method | Implemented |
+| arc() | Method | Implemented |
+| arcTo() | Method | Implemented |
+| scale() | Method | Implemented |
+| rotate() | Method | Implemented |
+| translate() | Method | Implemented |
+| transform() | Method | Implemented |
+| setTransform() | Method | Implemented |
+| fillText() | Method | Implemented |
+| strokeText() | Method | Implemented |
+| measureText() | Method | <em>Empty</em> |
+| drawImage() | Method | Implemented |
+| createImageData() | Method | Implemented |
+| getImageData() | Method | Implemented |
+| putImageData() | Method | Implemented |
+| save() | Method | Implemented |
+| restore() | Method | Implemented |
+| getContext() | Method | Implemented |
+| loadTexture() | Method | Implemented |
+| unloadTexture() | Method | Implemented |
+| resetTransform() | Method | Implemented |
+| render() | Method | Implemented |
+| capture() | Method | <em>Empty</em> |
+| resetClip() | Method | Implemented |</p>
+<p>###
+ImageData
+| API Name | API Type | Status |
+| :--- | :--- | :--- |
+| width | Attribute getter/setter | Implemented |
+| height | Attribute getter/setter | Implemented |
+| data | Attribute getter/setter | Undefined |
+| src | Attribute getter/setter | Implemented |
+| complete | Attribute getter/setter | Implemented |</p>
+</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="content"><a class="open-source-icon" href="http://opensource.alibaba.com/"><img src="http://zos.alipayobjects.com/rmsportal/OCGqTPRSXYMsKjGiHPuP.png"></a>
+        <div class="license">Released under Apache License</div>
+        <div class="copyright">Copyright ©️ 2017 Alibaba Inc.</div>
+      </div>
+    </div>
+  </body>
+</html>

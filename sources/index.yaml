@@ -1,14 +1,19 @@
 
 docs:
   gcanvas-docs:
-    Introduction: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
+    Introduction: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Brief.md
     Guide:
-      Developers Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
-      API Summary: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/APIs.md
-      Weex Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Setup_Weex.md
-    ReactNative Setup Guide: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/bridges/react-native-bridge/react-native-gcanvas/README.md
-    How it works: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/An_Introduction_to_GCanvas.md
-    Customize your own bridge: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/Guide_Custom_GCanvas_Bridge.md
+      Developer's Guide: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Guide_Developer.md
+      Integrate GCanvas on Weex: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Guide_Setup_Weex.md
+      Integrate GCanvas on ReactNative: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Guide_Setup_ReactNative.md
+      Custom Bridge: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Guide_Custom_Bridge.md
+      Contribute to GCanvas: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Contributing.md
+    Design:
+      Architecutre: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/An_Introduction_to_GCanvas.md
+    Reference:
+      Graphics 2D: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Reference_Graphics_2D.md
+      WebGL: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Reference_WebGL.md
+    About: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/About.md
     Playground: https://raw.githubusercontent.com/alibaba/GPlatform/dev/GCanvas/docs/playground.md
 
   g3d-docs:
