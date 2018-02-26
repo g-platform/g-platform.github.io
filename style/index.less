@@ -225,6 +225,14 @@ html, body{
                     margin-right: 13px;
                 }
             }
+
+            .item-right{
+                float: right;
+                a.link{
+                    color: #888;
+                    font-size: 0.9rem;
+                }
+            }
         }
 
     }
@@ -260,6 +268,8 @@ html, body{
         .content{
             width: 1280px;
             margin: auto;
+
+            padding: 100px 0;
 
             .logo{
                 img{
@@ -342,7 +352,7 @@ html, body{
     .content{
         width: 1080px;
         margin: auto;
-        padding: 100px;
+        padding: 100px 0;
 
         .coorp-item{
 
@@ -390,8 +400,6 @@ html, body{
         }
 
     }
-
-
 }
 
 .g3d{
@@ -410,6 +418,14 @@ html, body{
                     height: 40px;
                     margin-left: 11px;
                     margin-right: 13px;
+                }
+            }
+
+            .item-right{
+                float: right;
+                a.link{
+                    color: #888;
+                    font-size: 0.9rem;
                 }
             }
         }
@@ -509,7 +525,12 @@ html, body{
                 -webkit-margin-start: -20px;
 
                 .item-title{
-                    padding: 5px 0;
+                    padding: 5px 0 5px 0px;
+                    margin-right: 30px;
+                    &::before{
+                        content: '▶ ';
+                        font-size: 8px;
+                    }
                 }
 
                 li{
@@ -517,7 +538,9 @@ html, body{
                     font-size: 16px;
                     a{
                         text-decoration: none;
-        
+                        margin-left: 15px; 
+                        display: block;
+    
                         &:link{
                             color: #555;
                         }

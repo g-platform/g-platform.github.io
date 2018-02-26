@@ -261,6 +261,13 @@ body {
   margin-left: 11px;
   margin-right: 13px;
 }
+.gcanvas .header .menu .item-right {
+  float: right;
+}
+.gcanvas .header .menu .item-right a.link {
+  color: #888;
+  font-size: 0.9rem;
+}
 .gcanvas .banner {
   height: 700px;
   background: #2b2b2b;
@@ -284,6 +291,7 @@ body {
 .gcanvas .intro .content {
   width: 1280px;
   margin: auto;
+  padding: 100px 0;
 }
 .gcanvas .intro .content .logo img {
   display: block;
@@ -350,7 +358,7 @@ body {
 .gcanvas .content {
   width: 1080px;
   margin: auto;
-  padding: 100px;
+  padding: 100px 0;
 }
 .gcanvas .content .coorp-item {
   text-decoration: none;
@@ -430,6 +438,13 @@ body {
   margin-left: 11px;
   margin-right: 13px;
 }
+.g3d .header .menu .item-right {
+  float: right;
+}
+.g3d .header .menu .item-right a.link {
+  color: #888;
+  font-size: 0.9rem;
+}
 .g3d .banner {
   height: 700px;
   background: #2b2b2b;
@@ -502,7 +517,12 @@ body {
   -webkit-margin-start: -20px;
 }
 .doc .content .index ol .item-title {
-  padding: 5px 0;
+  padding: 5px 0 5px 0px;
+  margin-right: 30px;
+}
+.doc .content .index ol .item-title::before {
+  content: '▶ ';
+  font-size: 8px;
 }
 .doc .content .index ol li {
   padding: 5px 0;
@@ -510,6 +530,8 @@ body {
 }
 .doc .content .index ol li a {
   text-decoration: none;
+  margin-left: 15px;
+  display: block;
 }
 .doc .content .index ol li a:link {
   color: #555;
