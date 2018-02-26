@@ -9,7 +9,7 @@ docs:
       Custom Bridge: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Guide_Custom_Bridge.md
       Contribute to GCanvas: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Contributing.md
     Design:
-      Architecutre: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/An_Introduction_to_GCanvas.md
+      Architecture: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/An_Introduction_to_GCanvas.md
     Reference:
       Graphics 2D: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Reference_Graphics_2D.md
       WebGL: https://raw.githubusercontent.com/alibaba/GPlatform/master/GCanvas/docs/Reference_WebGL.md
