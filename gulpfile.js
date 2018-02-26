@@ -125,6 +125,11 @@ gulp.task('build', ['less'], function () {
     });
 })
 
+gulp.task('prepublish', function(){
+    gulp.src('./docs/**')
+    .pipe(gulp.dest('./'));
+})
+
 
 gulp.task('fetch', async function () {
 
